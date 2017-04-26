@@ -18,3 +18,4 @@ function component(){
 }
 
 document.body.appendChild(component())
+console.log('看看文件影响')

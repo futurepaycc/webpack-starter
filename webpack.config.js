@@ -4,18 +4,37 @@
  */
 
 let path = require('path')
+let webpack = require('webpack')
+
 module.exports = {
-    entry:'./app/index.js',
-    output:{
-        filename:'bundle.js',
-        path:path.resolve(__dirname,'dist'),
+    entry: {
+        main: './app/index.js',
+        // vendor: 'lodash' //会聚合进入下面的vendor.js中
+    },
+    output: {
+        // filename: '[name].js',
+        filename: '[name].[chunkhash].js',
+        path: path.resolve(__dirname, 'dist'),
         publicPath: "dist" //这个属性webpack-dev-server用，日!,最好和上面一致
     },
-    module:{
-        loaders:[{
-            test:/\.js$/,
-            exclude:/node_modules/,
-            loader:'babel-loader'
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            // names: ['vendor', 'manifest']
+            name: 'vendor',
+            minChunks: function (module) { //有这个配置才会生成默认vendor.js
+                // this assumes your vendor imports exist in the node_modules directory
+                return module.context && module.context.indexOf('node_modules') !== -1;
+            }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest' //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
+        })
+    ],
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader'
         }]
     }
 }
