@@ -1,10 +1,19 @@
-import _ from 'lodash'
+import _ from "lodash"
 
-const TOOL_NAME = "WEBPACK"
+let users = [
+  { 'name': 'barney',  'age': 36 },
+  { 'name': 'fred',    'age': 40 },
+  { 'name': 'pebbles', 'age': 18 }
+];
+
+let names = _.chain(users).map((item)=>{
+    return item.name
+}).join(',').value()
+
 
 function component(){
     let element = document.createElement('div')
-    element.innerHTML = _.join(['你好',TOOL_NAME],'怎么了')
+    element.innerHTML = names
     return element
 }
 
