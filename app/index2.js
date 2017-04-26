@@ -16,7 +16,6 @@ async function computeNames() {
 (async function () {
     let names = await computeNames()
 
-
     let element = document.createElement('div')
     element.innerHTML = names
 
