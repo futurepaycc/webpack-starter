@@ -12,7 +12,7 @@ async function computeNames() {
     return names
 }
 
-// let names = await computeNames()
+// let names = await computeNames() 这种代码不行，异步需要一入口就是异步
 (async function () {
     let names = await computeNames()
 
