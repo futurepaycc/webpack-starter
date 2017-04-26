@@ -5,7 +5,7 @@ let users = [
 ];
 
 async function computeNames() {
-    let  _ = await import('lodash')
+    let _ = await import('lodash')
     let names = _.chain(users).map((item) => {
         return item.name
     }).join(',').value()
@@ -13,10 +13,12 @@ async function computeNames() {
 }
 
 // let names = await computeNames()
-let names = await computeNames()
+(async function () {
+    let names = await computeNames()
 
 
-let element = document.createElement('div')
-element.innerHTML = names
+    let element = document.createElement('div')
+    element.innerHTML = names
 
-document.body.appendChild(element)
+    document.body.appendChild(element)
+})()
