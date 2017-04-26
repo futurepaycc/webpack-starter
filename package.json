@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-server":"webpack-dev-server --config webpack2.config.js --inline --hot"
+    "dev-server":"webpack-dev-server --config webpack2.config.js --inline --hot",
+    "build2":"webpack --config webpack2.config.js"
   },
   "keywords": [],
   "author": "",

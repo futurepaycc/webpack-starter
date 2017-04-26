@@ -46,12 +46,28 @@ let computeNames = (() => {
 
 let users = [{ 'name': 'barney', 'age': 36 }, { 'name': 'fred', 'age': 40 }, { 'name': 'pebbles', 'age': 18 }];
 
-let names = computeNames();
+__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+    var names, element;
+    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+        while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+                _context2.next = 2;
+                return computeNames();
 
-let element = document.createElement('div');
-element.innerHTML = names;
+            case 2:
+                names = _context2.sent;
+                element = document.createElement('div');
 
-document.body.appendChild(component());
+                element.innerHTML = names;
+
+                document.body.appendChild(element);
+
+            case 6:
+            case 'end':
+                return _context2.stop();
+        }
+    }, _callee2, this);
+}))();
 
 /***/ })
 
