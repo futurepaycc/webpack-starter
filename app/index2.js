@@ -5,7 +5,7 @@ let users = [
 ];
 
 async function computeNames() {
-    let _ = await import('lodash')
+    let _ = await import('lodash') //引入lodash库
     let names = _.chain(users).map((item) => {
         return item.name
     }).join(',').value()
@@ -20,4 +20,9 @@ async function computeNames() {
     element.innerHTML = names
 
     document.body.appendChild(element)
+
+
+    let jquery = await import('jquery') //引入jquery库
+    let div = jquery('div')
+    console.log(div.text())
 })()
