@@ -3,9 +3,9 @@
 2. 安装babel相关包
 npm install --save-dev babel-core babel-preset-es2015
 npm install --save-dev babel-loader  
-3，配置babel ——>.babelrc
+3. 配置babel ——>.babelrc
 { "presets": [ "es2015" ] }  
-4.编写webpack.config.js
+4. 编写webpack.config.js
 ```js
 let path = require('path')
 module.exports = {
